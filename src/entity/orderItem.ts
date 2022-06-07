@@ -3,7 +3,7 @@ export class OrderItem {
   private _productId: string;
   private _name: string;
   private _price: number;
-  private quantity: number;
+  private _quantity: number;
 
   constructor(
     id: string,
@@ -16,7 +16,11 @@ export class OrderItem {
     this._name = name;
     this._price = price;
     this._productId = productId;
-    this.quantity = quantity;
+    this._quantity = quantity;
+  }
+
+  get quantity(): number {
+    return this._quantity;
   }
 
   get price(): number {
