@@ -23,15 +23,17 @@ describe("Customer unit tests", () => {
 
   it("should calculate total", () => {
     const item = new OrderItem("i1", "Item1", 100, "product1", 2);
-    const itemTwo = new OrderItem("i1", "Item1", 150, "product2", 4);
-
     const order = new Order("123", "123", [item]);
-    const orderTwo = new Order("123", "123", [item, itemTwo]);
 
     const total = order.total();
-    expect(total).toBe(100);
+    expect(total).toBe(200);
+  });
 
-    const orderTwoTotal = orderTwo.total();
-    expect(orderTwoTotal).toBe(250);
+  it("should calculate total order two", () => {
+    const item = new OrderItem("i1", "Item1", 150, "product2", 4);
+    const order = new Order("123", "123", [item]);
+
+    const total = order.total();
+    expect(total).toBe(600);
   });
 });

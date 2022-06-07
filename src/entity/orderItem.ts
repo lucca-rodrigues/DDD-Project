@@ -20,6 +20,6 @@ export class OrderItem {
   }
 
   get price(): number {
-    return this._price;
+    return this._price * this.quantity;
   }
 }
