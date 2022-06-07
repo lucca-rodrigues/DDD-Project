@@ -1,11 +1,25 @@
 export class OrderItem {
-  _id: string;
-  _name: string;
-  price: number;
+  private _id: string;
+  private _productId: string;
+  private _name: string;
+  private _price: number;
+  private quantity: number;
 
-  constructor(id: string, name: string, price: number) {
+  constructor(
+    id: string,
+    name: string,
+    price: number,
+    productId: string,
+    quantity: number
+  ) {
     this._id = id;
     this._name = name;
-    this.price = price;
+    this._price = price;
+    this._productId = productId;
+    this.quantity = quantity;
+  }
+
+  get price(): number {
+    return this._price;
   }
 }
