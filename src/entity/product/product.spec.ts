@@ -1,5 +1,4 @@
-import { Address } from "./address";
-import { Product } from "./product";
+import { Product } from "./index";
 
 describe("Product unit tests", () => {
   it("should throw when id is empty ", () => {

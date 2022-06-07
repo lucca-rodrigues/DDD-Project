@@ -1,4 +1,4 @@
-import { Address } from "./address";
+import { Address } from "entity/address";
 export class Customer {
   private _id: string;
   private _name: string;

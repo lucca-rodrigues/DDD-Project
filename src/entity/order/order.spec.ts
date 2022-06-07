@@ -1,6 +1,5 @@
-import { Address } from "./address";
-import { Order } from "./order";
-import { OrderItem } from "./orderItem";
+import { Order } from "./index";
+import { OrderItem } from "../orderItem";
 
 describe("Customer unit tests", () => {
   it("should throw when id is empty ", () => {

@@ -1,4 +1,4 @@
-import { OrderItem } from "./orderItem";
+import { OrderItem } from "../orderItem";
 
 export class Order {
   private _id: string;
