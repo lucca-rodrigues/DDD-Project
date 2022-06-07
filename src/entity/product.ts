@@ -18,6 +18,26 @@ export class Product {
     if (this._name.length === 0) {
       throw new Error("Name is required");
     }
+    if (this._price <= 0) {
+      throw new Error("Price muste be greater than zero");
+    }
     return true;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+
+  get price(): number {
+    return this._price;
+  }
+
+  changeName(name: string): void {
+    this._name = name;
+    this.validate();
+  }
+  changePrice(price: number): void {
+    this._price = price;
+    this.validate();
   }
 }
