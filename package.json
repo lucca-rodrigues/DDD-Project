@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "test": "npm run tsc && jest",
-    "tsc": "tsc"
+    "test": "yarn build && jest",
+    "build": "tsc"
   },
   "dependencies": {
     "@types/uuid": "^8.3.4",
