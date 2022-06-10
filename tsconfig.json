@@ -10,8 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictNullChecks": false,
-    "skipLibCheck": true,
-    "baseUrl": "./src/"
+    "skipLibCheck": true
+    // "baseUrl": "./src"
   },
   "include": ["src/**/*.ts"]
 }
