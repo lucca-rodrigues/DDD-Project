@@ -87,4 +87,24 @@ describe("Product repository test", () => {
       price: foundProduct.price,
     });
   });
+
+  it("should find all products", async () => {
+    const productRepository = new ProductRepository();
+    const product = new Product("1", "Product 1", 100);
+
+    await productRepository.create(product);
+
+    const productModel = await ProductModel.findOne({
+      where: {
+        id: "1",
+      },
+    });
+    const foundProduct = await productRepository.find("1");
+
+    expect(productModel.toJSON()).toStrictEqual({
+      id: foundProduct.id,
+      name: foundProduct.name,
+      price: foundProduct.price,
+    });
+  });
 });
