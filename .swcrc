@@ -1,0 +1,12 @@
+{
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true
+    },
+    "tramsform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    }
+  }
+}
