@@ -1,4 +1,5 @@
 import { Product } from "../entity/product";
 import { RepositoryInterface } from "./repository-interface";
 
-export interface ProductRepository extends RepositoryInterface<Product> {}
+export interface ProductRepositoryInterface
+  extends RepositoryInterface<Product> {}
