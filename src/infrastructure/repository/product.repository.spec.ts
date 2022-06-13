@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { ProductModel } from "../db/sequelize/model/product.model";
-import { ProductRepository } from '../../domain/repository/product-repository.interface';
+import { ProductRepository } from "../../domain/repository/product-repository.interface";
 import { Product } from "../../domain/entity/product";
 
 describe("Product repository test", () => {
@@ -37,5 +37,5 @@ describe("Product repository test", () => {
       name: "Product 1",
       price: 100,
     });
-  }
+  });
 });
