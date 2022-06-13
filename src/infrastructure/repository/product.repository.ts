@@ -8,6 +8,7 @@ export class ProductRepository implements ProductRepositoryInterface {
 
     return new Product(productModel.id, productModel.name, productModel.price);
   }
+
   async findAll(): Promise<Product[]> {
     const productModels = await ProductModel.findAll();
 
@@ -16,6 +17,7 @@ export class ProductRepository implements ProductRepositoryInterface {
         new Product(productModel.id, productModel.name, productModel.price)
     );
   }
+
   async create(entity: Product): Promise<void> {
     await ProductModel.create({
       id: entity.id,
