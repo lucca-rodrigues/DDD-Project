@@ -4,7 +4,7 @@
       "syntax": "typescript",
       "decorators": true
     },
-    "tramsform": {
+    "transform": {
       "legacyDecorator": true,
       "decoratorMetadata": true
     }

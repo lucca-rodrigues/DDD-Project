@@ -17,7 +17,13 @@ export class ProductRepository implements ProductRepositoryInterface {
     });
   }
 
-  async update(product: Product): Promise<void> {
-    throw new Error("Method not implemented.");
+  async update(entity: Product): Promise<void> {
+    await ProductModel.update(
+      {
+        name: entity.name,
+        price: entity.price,
+      },
+      { where: { id: entity.id } }
+    );
   }
 }
