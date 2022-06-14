@@ -2,10 +2,6 @@ import { Product } from "../../../domain/entity/product";
 import { ProductModel } from "../../db/sequelize/model/product/product.model";
 import { ProductRepositoryInterface } from "../../../domain/repository/product-repository.interface";
 export class ProductRepository implements ProductRepositoryInterface {
-  find(id: string): Promise<Product> {
-    throw new Error("Method not implemented.");
-  }
-
   async create(entity: Product): Promise<void> {
     await ProductModel.create({
       id: entity.id,
@@ -24,10 +20,10 @@ export class ProductRepository implements ProductRepositoryInterface {
     );
   }
 
-  // async find(id: string): Promise<Product> {
-  //   const productModel = await ProductModel.findOne({ where: { id } });
-  //   return new Product(productModel.id, productModel.name, productModel.price);
-  // }
+  async find(id: string): Promise<Product> {
+    const productModel = await ProductModel.findOne({ where: { id } });
+    return new Product(productModel.id, productModel.name, productModel.price);
+  }
 
   async findAll(): Promise<Product[]> {
     const productModels = await ProductModel.findAll();

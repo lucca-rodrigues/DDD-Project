@@ -19,7 +19,6 @@ export class OrderModel extends Model {
   @Column
   declare id: string;
 
-  // Relationship
   @ForeignKey(() => CustomerModel)
   @Column({ allowNull: false })
   declare customer_id: string;
@@ -30,8 +29,6 @@ export class OrderModel extends Model {
   @HasMany(() => OrderItemModel)
   declare items: OrderItemModel[];
 
-  @Column({
-    allowNull: false,
-  })
+  @Column({ allowNull: false })
   declare total: number;
 }
