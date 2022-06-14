@@ -5,8 +5,10 @@ import {
   Column,
   ForeignKey,
   BelongsTo,
+  HasMany,
 } from "sequelize-typescript";
 import { CustomerModel } from "../customer/customer.model";
+import { OrderItemModel } from "../orderItem/orderItem.model";
 
 @Table({
   tableName: "orders",
@@ -24,6 +26,9 @@ export class OrderModel extends Model {
 
   @BelongsTo(() => CustomerModel)
   declare customer: CustomerModel;
+
+  @HasMany(() => OrderItemModel)
+  declare items: OrderItemModel[];
 
   @Column({
     allowNull: false,
