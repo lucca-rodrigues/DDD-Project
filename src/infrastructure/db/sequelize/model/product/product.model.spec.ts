@@ -1,24 +1,22 @@
 import { Sequelize } from "sequelize-typescript";
-import { ProductModel } from "../db/sequelize/model/product/product.model";
-import { Product } from "../../domain/entity/product";
-import { ProductRepository } from "./product.repository";
+import { ProductModel } from "../product copy/product.model";
 
 describe("Product repository test", () => {
-  let sequelize: Sequelize;
+  let sequileze: Sequelize;
 
   beforeEach(async () => {
-    sequelize = new Sequelize({
+    sequileze = new Sequelize({
       dialect: "sqlite",
       storage: ":memory:",
       logging: false,
       sync: { force: true },
     });
-    sequelize.addModels([ProductModel]);
-    await sequelize.sync();
+    sequileze.addModels([ProductModel]);
+    await sequileze.sync();
   });
 
   afterEach(async () => {
-    await sequelize.close();
+    await sequileze.close();
   });
 
   it("should create a product", async () => {
@@ -27,9 +25,7 @@ describe("Product repository test", () => {
 
     await productRepository.create(product);
 
-    const productModel = await ProductModel.findOne({
-      where: { id: "1" },
-    });
+    const productModel = await ProductModel.findOne({ where: { id: "1" } });
 
     expect(productModel.toJSON()).toStrictEqual({
       id: "1",
@@ -44,9 +40,7 @@ describe("Product repository test", () => {
 
     await productRepository.create(product);
 
-    const productModel = await ProductModel.findOne({
-      where: { id: "1" },
-    });
+    const productModel = await ProductModel.findOne({ where: { id: "1" } });
 
     expect(productModel.toJSON()).toStrictEqual({
       id: "1",
@@ -74,11 +68,8 @@ describe("Product repository test", () => {
 
     await productRepository.create(product);
 
-    const productModel = await ProductModel.findOne({
-      where: {
-        id: "1",
-      },
-    });
+    const productModel = await ProductModel.findOne({ where: { id: "1" } });
+
     const foundProduct = await productRepository.find("1");
 
     expect(productModel.toJSON()).toStrictEqual({
@@ -91,11 +82,9 @@ describe("Product repository test", () => {
   it("should find all products", async () => {
     const productRepository = new ProductRepository();
     const product = new Product("1", "Product 1", 100);
-
     await productRepository.create(product);
 
     const product2 = new Product("2", "Product 2", 200);
-
     await productRepository.create(product2);
 
     const foundProducts = await productRepository.findAll();
